@@ -6,64 +6,90 @@
     <title>REY - Distributed AI</title>
     <style>
         body {
-            background-color: #000;
-            color: #0ff;
+            background-color: #050505;
+            color: #00ffff;
             font-family: 'Courier New', Courier, monospace;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
             margin: 0;
             overflow: hidden;
         }
         #ui-container {
             position: relative;
-            width: 800px; /* Настрой под размер своих панелей */
-            height: 600px;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
-        .ui-panel {
+        .background-layer {
             position: absolute;
-            pointer-events: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            z-index: 1;
         }
         #greeting {
-            position: absolute;
-            top: 20%;
-            left: 10%;
-            width: 80%;
+            position: relative;
+            z-index: 10;
+            width: 70%;
             text-align: center;
-            font-size: 1.2rem;
-            text-shadow: 0 0 10px #0ff;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 50px;
+        }
+        .input-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 60%;
         }
         #user-input {
-            position: absolute;
-            bottom: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 255, 255, 0.1);
-            border: 1px solid #0ff;
-            color: #0ff;
-            padding: 10px;
-            width: 60%;
+            width: 100%;
+            background: rgba(0, 20, 20, 0.8);
+            border: 2px solid #00ffff;
+            color: #00ffff;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-family: inherit;
             outline: none;
             text-align: center;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+        .ui-decoration {
+            position: absolute;
+            z-index: 5;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
 
     <div id="ui-container">
-        <!-- Твои картинки из папки static -->
-        <img src="static/ui_panel_left.png" class="ui-panel" style="left: 0; top: 0;">
-        
-        <!-- Текст ответа РЭЙ -->
-        <div id="greeting">Система РЭЙ готова к инициализации...</div>
-        
+        <!-- Твой фоновый персонаж/рендер -->
+        <img src="static/rey_character.png" class="background-layer">
+
+        <!-- Текст ответа -->
+        <div id="greeting">Инициализация протоколов РЭЙ... Ожидаю авторизации Анастасии.</div>
+
         <!-- Поле ввода -->
-        <input type="text" id="user-input" placeholder="Введите команду для РЭЙ..." autofocus>
+        <div class="input-wrapper">
+            <input type="text" id="user-input" placeholder="Введите директиву..." autofocus>
+        </div>
+        
+        <!-- Декоративная панель (если есть файл ui_input_field.png) -->
+        <img src="static/ui_input_field.png" class="ui-decoration" style="bottom: 5%; width: 65%; opacity: 0.8;">
     </div>
 
-    <!-- Подключаем логику -->
     <script src="static/brain.js"></script>
 </body>
 </html>
