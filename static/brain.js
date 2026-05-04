@@ -1,5 +1,5 @@
 // Вставь свой ключ прямо сюда
-const API_KEY = "AIzaSyCxTKdchwCFwS-T0hEfEKhs3oxCXghOroc"; 
+const API_KEY = "AIzaSyB9X7BiaWzVDyB_zO50VVRwEsYjoeGP0K0"; 
 
 async function askGemini(text) {
     const greeting = document.getElementById('greeting');
