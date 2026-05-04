@@ -36,3 +36,7 @@ async function askGemini(text) {
 //     const input = document.getElementById('user-input').value;
 //     askGemini(input);
 // });
+catch (error) {
+    console.error("Вот почему РЭЙ молчит:", error);
+    // Оставь здесь старый текст, если хочешь, но мы увидим реальную причину выше
+}
